@@ -28,6 +28,10 @@ def test_create_ok_size_two_matches_twice_alphabet_length(capsys):
     assert do.create(2, 'a') == 'aa'
 
 
+def test_create_ok_size_five_single_letter_alphabet(capsys):
+    assert do.create(5, 'a') == 'aaaaa'
+
+
 def test_create_ok_size_five_matches_twice_alphabet_length_plus_wun(capsys):
     identity = do.create(5, 'ab')
     assert len(identity) == 5
