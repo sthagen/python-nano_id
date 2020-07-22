@@ -18,7 +18,8 @@ def test_main_ok_size_and_alphabet_default(capsys):
 def test_main_ok_size_wun_and_alphabet_default(capsys):
     assert cli.main([1, '']) is None
     out, _ = capsys.readouterr()
-    assert out == '0'
+    assert len(out) == 1
+    assert all(ch in DEFAULT_ALPHABET_HACK for ch in out)
 
 
 def test_main_nok_size_wrong_type_default_alphabet():
