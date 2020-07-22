@@ -15,3 +15,9 @@ def test_main_nok_size_wrong_type_default_alphabet():
     message = r"invalid literal for int\(\) with base 10: 'a'"
     with pytest.raises(ValueError, match=message):
         cli.main(['a', ''])
+
+
+def test_main_nok_negative_size_default_alphabet():
+    message = r"size must be either positive or zero \(for default\)"
+    with pytest.raises(ValueError, match=message):
+        cli.main([-1, ''])
