@@ -30,6 +30,6 @@ def test_main_nok_negative_size_default_alphabet():
 
 
 def test_main_nok_size_wun_but_alphabet_has_wrong_type():
-    message = r"'int' object is not subscriptable"
+    message = r"'int' object is not iterable"
     with pytest.raises(TypeError, match=message):
         cli.main([1, 42])
