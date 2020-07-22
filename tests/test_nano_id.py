@@ -11,3 +11,7 @@ def test_create_ok_size_and_alphabet_default():
 
 def test_create_ok_size_wun_and_alphabet_default(capsys):
     assert do.create(1, '') == '0'
+
+
+def test_create_ok_size_wun_matches_alphabet_length(capsys):
+    assert do.create(1, 'a') == 'a'
