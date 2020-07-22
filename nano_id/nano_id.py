@@ -7,7 +7,7 @@ ENCODING = "utf-8"
 ENCODING_ERRORS_POLICY = "ignore"
 
 
-def create(size: int=None, alphabet: str=None):
+def create(size: int = None, alphabet: str = None):
     """Create a nano id of given size using the given alphabet or defaults."""
     if not alphabet:
         alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.:,;'
