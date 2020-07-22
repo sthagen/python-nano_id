@@ -21,3 +21,9 @@ def test_main_nok_negative_size_default_alphabet():
     message = r"size must be either positive or zero \(for default\)"
     with pytest.raises(ValueError, match=message):
         cli.main([-1, ''])
+
+
+def test_main_nok_size_wun_but_alphabet_has_wrong_type():
+    message = r"'int' object is not subscriptable"
+    with pytest.raises(TypeError, match=message):
+        cli.main([1, 42])
