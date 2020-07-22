@@ -4,9 +4,14 @@ import pytest  # type: ignore
 
 import nano_id.nano_id as do
 
+DEFAULT_SIZE_HACK = 16
+DEFAULT_ALPHABET_HACK = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.:,;'
+
 
 def test_create_ok_size_and_alphabet_default():
-    assert do.create(0, '') == '0123456789abcdef'
+    identity = do.create(0, '')
+    assert len(identity) == DEFAULT_SIZE_HACK
+    assert all(ch in DEFAULT_ALPHABET_HACK for ch in identity)
 
 
 def test_create_ok_size_wun_and_alphabet_default(capsys):
