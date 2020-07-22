@@ -4,11 +4,15 @@ import pytest  # type: ignore
 
 import nano_id.cli as cli
 
+DEFAULT_SIZE_HACK = 16
+DEFAULT_ALPHABET_HACK = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.:,;'
+
 
 def test_main_ok_size_and_alphabet_default(capsys):
     assert cli.main([0, '']) is None
     out, _ = capsys.readouterr()
-    assert out == '0123456789abcdef'
+    assert len(out) == DEFAULT_SIZE_HACK
+    assert all(ch in DEFAULT_ALPHABET_HACK for ch in out)
 
 
 def test_main_ok_size_wun_and_alphabet_default(capsys):
