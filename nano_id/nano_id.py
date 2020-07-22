@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # pylint: disable=line-too-long
 """Yet another nano id implementation."""
+import random
 
 ENCODING = "utf-8"
 ENCODING_ERRORS_POLICY = "ignore"
@@ -13,7 +14,4 @@ def create(size: int = None, alphabet: str = None):
         alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.:,;'
     if not size:
         size = 16
-    nano = []
-    while len(nano) < size:
-        nano.extend([ch for ch in alphabet])
-    return ''.join(nano[:size])
+    return ''.join(random.SystemRandom().choice(alphabet) for _ in range(size))
