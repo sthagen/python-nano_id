@@ -13,4 +13,7 @@ def create(size: int = None, alphabet: str = None):
         alphabet = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-.:,;'
     if not size:
         size = 16
-    return alphabet[:size]
+    nano = []
+    while len(nano) < size:
+        nano.extend([ch for ch in alphabet])
+    return ''.join(nano[:size])
